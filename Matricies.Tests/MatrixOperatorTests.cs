@@ -7,13 +7,13 @@ namespace Matricies.Tests
     [TestClass]
     public class MatrixOperatorTests
     {
-        private static Matrix2D GetTestMatrix()
+        private static Matrix GetTestMatrix()
         {
             decimal[,] testArray = {    {/*0,0*/ 1m, 2m, 3m , 4m, 5m},
                                     { 6m, 7m, 8m, 9m, 10m },
                                     { 11m, 12m, 13m, 14m, 15m},
                                     { 16m, 17m, 18m, 19m, 20m /*4,3*/} };
-            var matrix = new Matrix2D(testArray);
+            var matrix = new Matrix(testArray);
             return matrix;
         }
 
@@ -23,7 +23,7 @@ namespace Matricies.Tests
         public void MatrixMultiplyRightOperator_WithIntegerValue_EvaluatesCorrectly()
         {
             //Arrange
-            Matrix2D matrix = GetTestMatrix();
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
@@ -42,10 +42,9 @@ namespace Matricies.Tests
         public void MatrixMultiplyRightOperator_WithDecimalValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix * 2.3m;
             //Assert
 
@@ -60,11 +59,11 @@ namespace Matricies.Tests
         public void MatrixMultiplyRightOperator_WithDoubleValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix * 2.3;
+
             //Assert
 
             //The returned matrix is the one we started with
@@ -78,10 +77,10 @@ namespace Matricies.Tests
         public void MatrixMultiplyRightOperator_WithFloatValue_EvaluatesCorrectly()
         {
             //Arrange
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix * 3.2f;
             //Assert
 
@@ -96,7 +95,7 @@ namespace Matricies.Tests
         public void MatrixMultiplyLeftOperator_WithIntegerValue_EvaluatesCorrectly()
         {
             //Arrange
-            Matrix2D matrix = GetTestMatrix();
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
@@ -115,10 +114,9 @@ namespace Matricies.Tests
         public void MatrixMultiplyLeftOperator_WithDecimalValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = 2.3m * matrix;
             //Assert
 
@@ -133,10 +131,9 @@ namespace Matricies.Tests
         public void MatrixMultiplyLeftOperator_WithDoubleValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = 2.3 * matrix;
             //Assert
 
@@ -151,10 +148,9 @@ namespace Matricies.Tests
         public void MatrixMultiplyLeftOperator_WithFloatValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = 3.2f * matrix;
             //Assert
 
@@ -173,7 +169,7 @@ namespace Matricies.Tests
         public void MatrixAddRightOperator_WithIntegerValue_EvaluatesCorrectly()
         {
             //Arrange
-            Matrix2D matrix = GetTestMatrix();
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
@@ -192,10 +188,9 @@ namespace Matricies.Tests
         public void MatrixAddRightOperator_WithDecimalValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix + 2.3m;
             //Assert
 
@@ -210,10 +205,9 @@ namespace Matricies.Tests
         public void MatrixAddRightOperator_WithDoubleValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix + 2.3;
             //Assert
 
@@ -228,10 +222,9 @@ namespace Matricies.Tests
         public void MatrixAddRightOperator_WithFloatValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix + 3.2f;
             //Assert
 
@@ -246,7 +239,7 @@ namespace Matricies.Tests
         public void MatrixAddLeftOperator_WithIntegerValue_EvaluatesCorrectly()
         {
             //Arrange
-            Matrix2D matrix = GetTestMatrix();
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
@@ -265,10 +258,9 @@ namespace Matricies.Tests
         public void MatrixAddLeftOperator_WithDecimalValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = 2.3m + matrix;
             //Assert
 
@@ -283,10 +275,9 @@ namespace Matricies.Tests
         public void MatrixAddLeftOperator_WithDoubleValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = 2.3 + matrix;
             //Assert
 
@@ -301,10 +292,9 @@ namespace Matricies.Tests
         public void MatrixAddLeftOperator_WithFloatValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = 3.2f + matrix;
             //Assert
 
@@ -323,7 +313,7 @@ namespace Matricies.Tests
         public void MatrixDivideRightOperator_WithIntegerValue_EvaluatesCorrectly()
         {
             //Arrange
-            Matrix2D matrix = GetTestMatrix();
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
@@ -342,10 +332,9 @@ namespace Matricies.Tests
         public void MatrixDivideRightOperator_WithDecimalValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix / 2.3m;
             //Assert
 
@@ -360,10 +349,9 @@ namespace Matricies.Tests
         public void MatrixDivideRightOperator_WithDoubleValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix / 2.3;
             //Assert
 
@@ -378,10 +366,9 @@ namespace Matricies.Tests
         public void MatrixDivideRightOperator_WithFloatValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix / 3.2f;
             //Assert
 
@@ -399,7 +386,7 @@ namespace Matricies.Tests
         public void MatrixSubtractRightOperator_WithIntegerValue_EvaluatesCorrectly()
         {
             //Arrange
-            Matrix2D matrix = GetTestMatrix();
+            Matrix matrix = GetTestMatrix();
 
 
             //Act
@@ -418,10 +405,9 @@ namespace Matricies.Tests
         public void MatrixSubtractRightOperator_WithDecimalValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix - 2.3m;
             //Assert
 
@@ -436,10 +422,9 @@ namespace Matricies.Tests
         public void MatrixSubtractRightOperator_WithDoubleValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix - 2.3;
             //Assert
 
@@ -454,10 +439,9 @@ namespace Matricies.Tests
         public void MatrixSubtractRightOperator_WithFloatValue_EvaluatesCorrectly()
         {
             //Arrange
-
+            Matrix matrix = GetTestMatrix();
 
             //Act
-            Matrix2D matrix = GetTestMatrix();
             var newMatrix = matrix - 3.2f;
             //Assert
 

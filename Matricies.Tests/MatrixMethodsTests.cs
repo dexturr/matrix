@@ -7,7 +7,8 @@ namespace Matricies.Tests
     [TestClass]
     public class MatrixMethodsTests
     {
-        private static Matrix2D matrix { get; set; }
+        private static Matrix matrix { get; set; }
+
         [ClassInitialize]
         public static void InitTestSuite(TestContext testContext)
         {
@@ -15,9 +16,9 @@ namespace Matricies.Tests
                                     { 3.3m, 5.5m, 6.6m, 8.3m, 6.4m },
                                     { 4.3m, 6.5m, 7.6m, 9.3m, 7.4m },
                                     { 5.3m, 7.5m, 8.6m, 10.3m, 8.4m /*4,3*/} };
-            matrix = new Matrix2D(testArray);
+            matrix = new Matrix(testArray);
         }
-        //Done
+        
         #region GetElementTests
         [TestMethod]
         public void GetElement_ZeroIndex_ReturnsCorrectValue()
@@ -69,7 +70,7 @@ namespace Matricies.Tests
         }
 
         #endregion
-        //Done 
+        
         #region SetElementTests
         [TestMethod]
         public void SetElement_ZeroIndex_TakesValue()
@@ -128,7 +129,7 @@ namespace Matricies.Tests
         }
 
         #endregion
-        //Done
+        
         #region IsSquareTests
         [TestMethod]
         public void IsSquare_WithNonSquareMatrix_ReturnsFalse()
@@ -151,7 +152,7 @@ namespace Matricies.Tests
                                     { 5.3m, 7.5m, 8.6m, 10.3m, 8.4m /*4,4*/} };
 
             //Act
-            Matrix2D squareMatrix = new Matrix2D(testArray);
+            Matrix squareMatrix = new Matrix(testArray);
 
             //Assert
             Assert.IsTrue(squareMatrix.IsSquare);
@@ -162,7 +163,7 @@ namespace Matricies.Tests
         {
             //Arrange
 
-            Matrix2D zeroSizeMatrix = new Matrix2D(0, 0);
+            Matrix zeroSizeMatrix = new Matrix(0, 0);
 
             //Act
 
@@ -170,7 +171,7 @@ namespace Matricies.Tests
             Assert.IsTrue(zeroSizeMatrix.IsSquare);
         }
         #endregion
-        //Done
+        
         #region IsInvertible Tests
 
         [TestMethod]
@@ -184,7 +185,7 @@ namespace Matricies.Tests
         public void IsInvertible_WithSquareMatrixAndZeroDeterminant_ReturnsFalse()
         {
             //Arrange //Act //Assert
-            Matrix2D matrixWithZeroDeterminant = new Matrix2D(5, 5);
+            Matrix matrixWithZeroDeterminant = new Matrix(5, 5);
 
             Assert.IsFalse(matrixWithZeroDeterminant.IsInveritible());
         }
@@ -197,7 +198,7 @@ namespace Matricies.Tests
                                       {-42,-55,-44,-50},
                                       {3,-34,5,-34},
                                       {43,54,56,78} };
-            Matrix2D matrixWithDeterminant = new Matrix2D(matrixArray);
+            Matrix matrixWithDeterminant = new Matrix(matrixArray);
 
 
             //Assert
@@ -206,7 +207,7 @@ namespace Matricies.Tests
         }
 
         #endregion
-        //MOre to write (Not passing)
+        
         #region Submatrix Test
         [TestMethod]
         public void SubMatrix_WithOutOfRangeStartX_ThrowsError()
@@ -285,7 +286,7 @@ namespace Matricies.Tests
         {
             //Arrange
 
-            Matrix2D zeroSizeMatrix = new Matrix2D(0, 0);
+            Matrix zeroSizeMatrix = new Matrix(0, 0);
             //Act
 
             var subMatrix = zeroSizeMatrix.Submatrix(0, 0);
@@ -336,7 +337,7 @@ namespace Matricies.Tests
         {
             //Arrane
             //Act && Assert
-            Matrix2D zeroMatrix = matrix.Submatrix(1, 1, 1, 1);
+            Matrix zeroMatrix = matrix.Submatrix(1, 1, 1, 1);
             Assert.AreEqual(0, zeroMatrix.Width);
             Assert.AreEqual(0, zeroMatrix.Height);
         }
@@ -347,7 +348,7 @@ namespace Matricies.Tests
         {
             //Arrange
             //Act
-            Matrix2D subMatrix = matrix.Submatrix(0, 0, 1, 1);
+            Matrix subMatrix = matrix.Submatrix(0, 0, 1, 1);
 
             //Assert
             Assert.AreEqual(subMatrix.Width, 1);
@@ -366,7 +367,7 @@ namespace Matricies.Tests
         {
             //Arrange
             //Act
-            Matrix2D subMatrix = matrix.Submatrix(2, 2, 4, 4);
+            Matrix subMatrix = matrix.Submatrix(2, 2, 4, 4);
 
             //Assert
             Assert.AreEqual(subMatrix.Width, 2);
@@ -383,7 +384,7 @@ namespace Matricies.Tests
 
 
         #endregion
-        //Done
+        
         #region Determinant Tests
         [TestMethod]
         public void Determinant_With2x2Matrix_IsCalulculatedCorrectly()
@@ -391,7 +392,7 @@ namespace Matricies.Tests
             //Arrange
             decimal[,] matrixArray = { { 1, -2},
                                        { -5, 2 } };
-            Matrix2D matrixWithDeterminant = new Matrix2D(matrixArray);
+            Matrix matrixWithDeterminant = new Matrix(matrixArray);
 
             //Act //Assert
             Assert.AreEqual(-8, matrixWithDeterminant.Determinant());
@@ -405,7 +406,7 @@ namespace Matricies.Tests
             decimal[,] matrixArray = { { 1, -2, 4 },
                                        { -5, 2, 0 },
                                        { 1, 0, 3 } };
-            Matrix2D matrixWithDeterminant = new Matrix2D(matrixArray);
+            Matrix matrixWithDeterminant = new Matrix(matrixArray);
 
             //Act //Assert
             Assert.AreEqual(-32, matrixWithDeterminant.Determinant());
@@ -419,7 +420,7 @@ namespace Matricies.Tests
                                       {-42,-55,-44,-50},
                                       {3,-34,5,-34},
                                       {43,54,56,78} };
-            Matrix2D matrixWithDeterminant = new Matrix2D(matrixArray);
+            Matrix matrixWithDeterminant = new Matrix(matrixArray);
 
             //Act //Assert
             Assert.AreEqual(970052, matrixWithDeterminant.Determinant());
@@ -430,7 +431,7 @@ namespace Matricies.Tests
         public void Determinant_WithMatrixOfSize0_ReturnsZero()
         {
             //Arrange
-            Matrix2D matrixWithZeroSize = new Matrix2D(0, 0);
+            Matrix matrixWithZeroSize = new Matrix(0, 0);
 
             //Act //Assert
             Assert.AreEqual(0, matrixWithZeroSize.Determinant());
